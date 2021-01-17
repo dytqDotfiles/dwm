@@ -449,17 +449,17 @@ buttonpress(XEvent *e)
 		else if (ev->x > (x = selmon->ww - (int)TEXTW(stext) + lrpad)){
 			click = ClkStatusText;
 			char * text = rawstext;
-			int i = - 1;
+			int i = -1;
 			char ch;
 			dwmblockssig = 0;
 			while(text[++i]) {
-				if((unsigned char) text [i] < ' ') {
+				if((unsigned char) text[i] < ' ') {
 					ch = text[i];
 					text[i] = '\0';
-					x += TEXTW(text - lrpad);
+					x += TEXTW(text) - lrpad;
 					text[i] = ch;
 					text += i+1;
-					i = - 1;
+					i = -1;
 					if(x >= ev->x) break;
 					dwmblockssig = ch;
 

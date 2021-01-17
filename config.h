@@ -7,8 +7,8 @@ static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=20","fontawesome:size:20","JoyPixels:pixelsize=20:antialias=true:autohint=true" };
-static const char dmenufont[]       = "monospace:size=20";
+static const char *fonts[]          = { "monospace:size=15","fontawesome:size:15","JoyPixels:pixelsize=15:antialias=true:autohint=true" };
+static const char dmenufont[]       = "monospace:size=15";
 /* default color */
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -103,8 +103,8 @@ static Key keys[] = {
 	{ 0,				XK_Mic,    spawn,	   {.v = mic_mut } },
 	{ MODKEY,			XK_Mic,    spawn,	   {.v = mic_register } }, 
 	{ Mod4Mask,			XK_l,      spawn,	   {.v = lockscr } },
-	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   SHCMD("sh ~/.scripts/dmenu/shutdown.sh") },
-	{ MODKEY|ShiftMask,		XK_r,	   spawn, 	   SHCMD("sh ~/.scripts/dmenu/reboot.sh") },
+	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   SHCMD("~/.scripts/dmenu/shutdown.sh") },
+	{ MODKEY|ShiftMask,		XK_r,	   spawn, 	   SHCMD("~/.scripts/dmenu/reboot.sh") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	//{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
