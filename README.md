@@ -1,4 +1,4 @@
-#dwm - dynamic window manager
+# dwm - dynamic window manager
 
 dwm is an extremely fast, small, and dynamic window manager for X.
 
@@ -11,7 +11,7 @@ In order to build dwm you need the Xlib header files.
 # Installation
 
 Edit config.mk to match your local setup (dwm is installed into
-the /usr/local namespace by default).
+the `/usr/local` namespace by default).
 
 Afterwards enter the following command to build and install dwm (if
 necessary as root):
@@ -46,3 +46,11 @@ like this in your .xinitrc:
 
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+# Hack
+
+Font is more large (small screen...)
+
+- config.h: add support for sound, brightness, mpd, clickable button for dwmblocks
+
+- dwm: add clickable button for dwmblocks -> change function buttonpress and add a signal to send to dwmblocks
