@@ -51,8 +51,8 @@ and (re)compiling the source code.
 
 # Hack
 
-Font is more large (small screen...)
-
+Font is more large (small screen...), change color scheme, add font awesome (get package in your distro), rename tilling mode...
+ 
 - config.h: add support for sound, brightness, mpd, clickable button for dwmblocks
 
 - dwm: add clickable button for dwmblocks -> change function buttonpress and add a signal to send to dwmblocks
