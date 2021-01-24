@@ -1,5 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
+#include "fibonacci.c"
 #include <X11/XF86keysym.h>
 
 /* appearance */
@@ -20,8 +21,8 @@ static const char col_backW[]       = "#202732";
 static const char col_bordunfocW[]  = "#526667";
 static const char col_bordfocusW[]  = "#8F6A61";
 static const char col_bar[]         = "#8CD2EE";
-static const char col_txt[]         = "#FEFEFE";
-static const char col_bartxt[]      = "#FEFEFE";
+static const char col_txt[]         = "#FFFFFF";
+static const char col_bartxt[]      = "#FFFFFF";
 
 static const char *colors[][3]      = {
 	/*               fg          bg         border   */
@@ -51,6 +52,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[T]",      tile },    /* first entry is default */
 	{ "[F]",      NULL },    /* no layout function means floating behavior */
+	{ "[@]",      spiral }, /* fibo */
 	{ "[M]",      monocle },
 };
 
@@ -67,8 +69,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "xterm", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-l", "20", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 /* microphone */
 static const char *mic_mut[] = { "amixer", "set", "Capture", "toggle", NULL};
@@ -113,11 +115,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_k,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY,                       XK_Tab,    view,           {0 } },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
